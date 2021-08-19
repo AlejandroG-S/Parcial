@@ -15,7 +15,7 @@
                 <button (click)="mostrarNuevoComportamiento()">Agregar Comportamiento</button>
 
                 <div>
-                    <div *ngFor="let comportamiento of comportamientos">
+                    <div *ngFor="let comportamiento of competencia.comportamiento">
                         <br>
                         <b>Descripcion Comportamiento: {{comportamiento.descripcion_compo}}</b>
                         <p>Peso: {{comportamiento.peso_compo}}</p>

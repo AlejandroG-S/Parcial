@@ -46,7 +46,7 @@ export class CompetenciaComponent{
 
   agregarComportamiento(id:number){
     let comportamiento = new Comportamiento(this.descripcion_comportamiento, this.peso, id)
-    this.comportamientos.push(comportamiento)
+    this.competencias[id].comportamiento.push(comportamiento)
   }
 
   eliminarComportamiento(id:number){
