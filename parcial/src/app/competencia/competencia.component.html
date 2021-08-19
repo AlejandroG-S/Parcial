@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<button (click)="mostrarNuevaCompetencia()">Crear competencia</button>
+<hr>
+<p *ngIf="NoHay">No hay competencias</p>
+
+<div>
+    <div>
+
+        <div>
+            <div *ngFor="let competencia of competencias; let i = index">
+                <p>Identificador: {{competencia.id}}</p>
+                <p>Nombre Competencia: {{competencia.nombre_competencia}}</p>
+                <p>Descripcion Competencia: {{competencia.descripcion_competencia}}</p>
+                <button (click)="eliminarCompetencias(i)">Eliminar Competencia</button>
+                <button (click)="mostrarNuevoComportamiento()">Agregar Comportamiento</button>
+
+                <div>
+                    <div *ngFor="let comportamiento of comportamientos">
+                        <br>
+                        <b>Descripcion Comportamiento: {{comportamiento.descripcion_compo}}</b>
+                        <p>Peso: {{comportamiento.peso_compo}}</p>
+                    </div>
+
+                    <div *ngIf="HayCompo">
+                        <p>Descripcion: <input type="text" [(ngModel)]="descripcion_comportamiento"></p>
+                        <p>Peso: <input type="number" [(ngModel)]="peso"></p>
+                        <button (click)="agregarComportamiento(i)">Guardar Comportamiento</button>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div *ngIf="!NoHay">
+                <p>Nombre: <input type="text" [(ngModel)]="nombre_competencia"></p>
+                <p>Descripcion: <input type="text" [(ngModel)]="descripcion_competencia"></p>
+                <button (click)="agregarCompetencia()">Guardar Competencia</button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
