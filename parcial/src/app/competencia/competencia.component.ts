@@ -11,6 +11,7 @@ import { Comportamiento } from '../models/comportamiento.model';
 export class CompetenciaComponent{
   title = "Competencias"
   
+  NoPrimero = true
   NoHay = true
   HayCompo = false
 
@@ -27,12 +28,13 @@ export class CompetenciaComponent{
 
   mostrarNuevaCompetencia() {
     this.NoHay = false
+    this.NoPrimero = false
   }
 
   agregarCompetencia(){
     let competencia = new Competencia(this.competencias.length + 1, this.nombre_competencia, this.descripcion_competencia, [])
     this.competencias.push(competencia)
-    
+    this.NoHay = true
   }
 
   eliminarCompetencias(id:number){
@@ -47,6 +49,7 @@ export class CompetenciaComponent{
   agregarComportamiento(id:number){
     let comportamiento = new Comportamiento(this.descripcion_comportamiento, this.peso, id)
     this.competencias[id].comportamiento.push(comportamiento)
+    this.HayCompo = false
   }
 
   eliminarComportamiento(id:number){
